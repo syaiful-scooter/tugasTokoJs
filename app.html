@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Syaiful Nopi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        #form-section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">Navbar</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" placeholder="Cari Merk/Harga/Kategori" aria-label="Search" id="cari"
+                    onkeyup="filterProducts()" onblur="filterProducts()" onchange="filterProducts()"
+                    onclick="filterProducts()">
+                <select name="" id="Filter-sort" class="form-control" style="width: 300px ; margin-right: 10px;"
+                    onchange="filterProducts()">
+                    <option value="asc">Name A-Z</option>
+                    <option value="desc">Name Z-A</option>
+                    <option value="hrg_asc">Price Min-Max</option>
+                    <option value="hrg_desc">Price Max-Min</option>
+                </select>
+            </form>
+        </nav>
+        <h3>Toko Sepatu </h3>
+        <hr>
+        <div class="row" id="pajang-sepatu">
+
+        </div>
+        <hr>
+
+        <button class="btn btn-sm btn-info" id="btn-add-data" onclick="showFormSection()"><i class="fas fa-plus-circle">
+            </i> Add New Data</button>
+        <br>
+        <br>
+
+        <div class="row" id="form-section">
+            <div class="col-md-6">
+                <form action="" id="form-data-peserta" onsubmit="event.preventDefault();">
+                    <input type="text" class="form-control merk" name="merk" placeholder="merk"
+                        onchange="updateFields(this)">
+                    <span class="merk-error text-danger"></span>
+                    <br>
+                    <input type="text" class="form-control kategori" name="kategori" placeholder="kategori"
+                        onchange="updateFields(this)">
+                    <span class="kategori-error text-danger"></span>
+                    <br>
+                    <input type="number" class="form-control harga" name="harga" placeholder="harga"
+                        onchange="updateFields(this)">
+                    <span class="harga-error text-danger"></span>
+                    <br>
+                    <input type="text" class="form-control rating" name="rating" placeholder="rating"
+                        onchange="updateFields(this)">
+                    <span class="rating-error text-danger"></span>
+                    <br>
+                    <input type="file" class="form-control picture" name="picture" placeholder=" defafult picture">
+                    <span class="picture-error"></span>
+
+                    <button class="btn btn-primary" id="btn-close-form"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-success" onclick="saveData()">Save Data</button>
+                </form>
+            </div>
+        </div>
+
+        <br><br>
+
+        <table class="table table-bordered">
+            <thead>
+                <th>Number</th>
+                <th>Merk</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Rating</th>
+                <th>Aksi</th>
+            </thead>
+            <tbody id="data-peserta">
+
+            </tbody>
+        </table>
+
+    </div>
+    <!-- fontawesome icons init -->
+    <script src="assets/js/fontawesome.init.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+        </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
